@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Profissionais do Instituto de Saúde Oral - Curitiba/PR">
+  <title>Profissionais – Instituto de Saúde Oral</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="header">
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">&#9776;</button>
+
+    <nav class="side-menu" id="sideMenu" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="especialidades.html">🦷 Especialidades</a></li>
+        <li><a href="index.html#quem-somos">ℹ️ Quem Somos</a></li>
+        <li><a href="https://www.google.com/maps/place/Instituto+de+Sa%C3%BAde+Oral/@-25.3976429,-49.2523343,18z" target="_blank" rel="noopener noreferrer">📍 Localização</a></li>
+        <li><a href="https://wa.me/5541984911286?text=Olá%20gostaria%20de%20agendar%20uma%20consulta%20vim%20pelo%20site" target="_blank" rel="noopener noreferrer" style="background:#25d366;margin-top:8px;font-weight:700;">📅 Agendar Consulta</a></li>
+      </ul>
+    </nav>
+
+    <div class="container nav">
+      <div class="nav-brand">
+        <img src="projeto-iso/foto.logo.png" alt="Logo Instituto de Saúde Oral" class="logo">
+        <h2>Instituto de Saúde Oral</h2>
+      </div>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="especialidades.html">Especialidades <span class="tooltip">Conheça os nossos tratamentos</span></a></li>
+          <li><a href="index.html#quem-somos">Quem Somos <span class="tooltip">Nossa história e valores</span></a></li>
+          <li><a href="https://www.google.com/maps/place/Instituto+de+Sa%C3%BAde+Oral/@-25.3976429,-49.2523343,18z" target="_blank" rel="noopener noreferrer">Localização <span class="tooltip">Veja onde estamos</span></a></li>
+          <li>
+            <a class="btn" href="https://wa.me/5541984911286?text=Olá%20gostaria%20de%20agendar%20uma%20consulta%20vim%20pelo%20site" target="_blank" rel="noopener noreferrer">Agendar Consulta</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="professionals container">
+    <h2>Nossos Especialistas</h2>
+    <div class="grid-3">
+      <div class="card doctor">
+        <img src="projeto-iso/Fotodrjuliana.jpeg" alt="Dra. Julliana Pires" loading="lazy">
+        <h3>Dra. Julliana Pires</h3>
+        <p>CRO-PR 33402</p>
+      </div>
+      <div class="card doctor">
+        <img src="projeto-iso/raulicaco real.jpeg" alt="Dr. Raulison Rodrigues" loading="lazy">
+        <h3>Dr. Raulison Rodrigues</h3>
+        <p>CRO-PR 37460</p>
+      </div>
+      <div class="card doctor">
+        <img src="projeto-iso/dr-bruna.jpeg" alt="Dra. Bruna Pires" loading="lazy">
+        <h3>Dra. Bruna Pires</h3>
+        <p>CRO-PR 36451</p>
+      </div>
+      <div class="card doctor">
+        <img src="projeto-iso/formiga-endo-canal-drgabriel.png" alt="Dr. Gabriel" loading="lazy">
+        <h3>Dr. Gabriel</h3>
+        <p>CRO-PR 35011</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Fixo -->
+  <a href="https://wa.me/5541984911286?text=Olá,%20vim%20pelo%20site!" class="whatsapp-fixo" target="_blank" rel="noopener noreferrer" aria-label="Agendar consulta via WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="25">
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // MENU HAMBURGER
+      const hamburger = document.getElementById('hamburger');
+      const sideMenu = document.getElementById('sideMenu');
+      if (hamburger && sideMenu) {
+        hamburger.addEventListener('click', () => {
+          sideMenu.style.width = sideMenu.style.width === '250px' ? '0' : '250px';
+        });
+      }
+
+      // HEADER SCROLL
+      const header = document.getElementById('header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+      }
+
+      // SCROLL ANIMATE
+      const elements = document.querySelectorAll('section, .card, .doctor img, h2, h3');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      elements.forEach(el => { el.classList.add('scroll-animate'); observer.observe(el); });
+
+    });
+  </script>
+
+</body>
+</html>
