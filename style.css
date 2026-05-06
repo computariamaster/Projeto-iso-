@@ -661,8 +661,16 @@ footer a:hover { color: var(--secondary) !important; }
 }
 .side-menu.open {
   width: 250px;
+  overflow-x: visible;
 }
 
+/* Garante que o menu nunca seja afetado pelo scroll-animate */
+.side-menu,
+.side-menu * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: width 0.3s ease !important;
+}
 .side-menu ul { list-style: none; padding: 0; margin: 0; }
 
 .side-menu a {
