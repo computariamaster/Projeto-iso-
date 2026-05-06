@@ -131,38 +131,33 @@
   </a>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    
 
       // MENU HAMBURGER
-      const hamburger = document.getElementById('hamburger');
-      const sideMenu = document.getElementById('sideMenu');
-      if (hamburger && sideMenu) {
-        hamburger.addEventListener('click', () => {
-          sideMenu.style.width = sideMenu.style.width === '250px' ? '0' : '250px';
-        });
-      }
+document.addEventListener('DOMContentLoaded', () => {
 
-      // HEADER SCROLL
-      const header = document.getElementById('header');
-      if (header) {
-        window.addEventListener('scroll', () => {
-          header.classList.toggle('scrolled', window.scrollY > 50);
-        }, { passive: true });
-      }
-
-      // SCROLL ANIMATE
-      const elements = document.querySelectorAll('section, .specialties li, h1, h2, h3');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      elements.forEach(el => { el.classList.add('scroll-animate'); observer.observe(el); });
-
+  // MENU HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const sideMenu = document.getElementById('sideMenu');
+  if (hamburger && sideMenu) {
+    hamburger.addEventListener('click', () => {
+      sideMenu.classList.toggle('open');
     });
+  }
+
+  // HEADER SCROLL
+  const header = document.getElementById('header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  }
+
+  // SCROLL ANIMATE - sem observer, tudo visível direto
+  document.querySelectorAll('section, .specialties li, h1, h2, h3')
+    .forEach(el => el.classList.add('show'));
+
+});
   </script>
 
 </body>
