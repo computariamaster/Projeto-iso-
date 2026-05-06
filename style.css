@@ -659,6 +659,9 @@ footer a:hover { color: var(--secondary) !important; }
   padding-top: 70px;
   z-index: 1001;
 }
+.side-menu.open {
+  width: 250px;
+}
 
 .side-menu ul { list-style: none; padding: 0; margin: 0; }
 

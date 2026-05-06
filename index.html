@@ -341,7 +341,7 @@ Atendimento exemplar 🥰.</p>
       const sideMenu = document.getElementById('sideMenu');
       if (hamburger && sideMenu) {
         hamburger.addEventListener('click', () => {
-          sideMenu.style.width = sideMenu.style.width === '250px' ? '0' : '250px';
+          sideMenu.classList.toggle('open');
         });
       }
 
