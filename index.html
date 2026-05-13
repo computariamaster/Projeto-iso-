@@ -234,7 +234,7 @@
           <div class="ts-quote">"</div>
           <p class="ts-text">O atendimento infantil é muito bom. As profissionais são gentis
              e cuidadosas, principalmente com crianças que tem medo.
-Super recomendo!
+Super recomendo!</p>
 </div>
         <div class="ts-card">
           <div class="ts-top">
@@ -243,7 +243,7 @@ Super recomendo!
           </div>
           <div class="ts-stars">★★★★★</div>
           <div class="ts-quote">"</div>
-          <p class="ts-text"></p>Fui atendida hoje pela dra.
+          <p class="ts-text">Fui atendida hoje pela dra.
            Bruna pela primeira vez. 
            Minha experiência foi ótima!
             Ela foi muito paciente,
@@ -259,7 +259,7 @@ Super recomendo!
           </div>
           <div class="ts-stars">★★★★★</div>
           <div class="ts-quote">"</div>
-          <p class="ts-text"></p>Dra Julliana e Dr Rauli
+          <p class="ts-text">Dra Julliana e Dr Rauli
 Atendimento excelente a recepcionista gentil educada me deu todas as informações q precisava.
 Com certeza super indico.
 Meu filho faz acompanhamento.
@@ -272,7 +272,7 @@ Atendimento exemplar 🥰.</p>
           </div>
           <div class="ts-stars">★★★★★</div>
           <div class="ts-quote">"</div>
-          <p class="ts-text"></p>Nota 10 desde o agendamento até o 
+          <p class="ts-text">Nota 10 desde o agendamento até o 
           atendimento e
            a consulta, avaliação, serviços prestados, tudo ótimo,
             equipe realmente muito atenciosos..</p>
@@ -280,6 +280,7 @@ Atendimento exemplar 🥰.</p>
 
       </div>
     </div>
+<div class="ts-dots" id="tsDots"></div>
 
     <div class="ts-dots" id="tsDots"></div>
   </div>
@@ -438,7 +439,11 @@ if (gallery && leftArrow && rightArrow) {
   wrapper.addEventListener('mouseenter', () => clearInterval(autoTimer));
   wrapper.addEventListener('mouseleave', () => resetAuto());
 
-  window.addEventListener('resize', () => { buildDots(); goTo(0); });
+  window.addEventListener('resize', () => {
+  const prev = current;
+  buildDots();
+  goTo(prev);
+});
 
   buildDots();
   goTo(0);
